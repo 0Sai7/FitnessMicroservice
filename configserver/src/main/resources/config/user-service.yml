@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: USER-SERVICE
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fitness-micro-user
+    username: postgres
+    password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    # FIX: Explicitly forces localhost to bypass the Windows mshome.net network bug
+    hostname: localhost
+
+server:
+  port: 8083
