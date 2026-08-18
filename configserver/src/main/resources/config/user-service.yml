@@ -1,8 +1,9 @@
 spring:
   application:
     name: USER-SERVICE
+
   datasource:
-    url: jdbc:postgresql://localhost:5432/fitness-micro-user
+    url: jdbc:postgresql://postgres:5432/fitness-micro-user
     username: postgres
     password: 1234
 
@@ -15,11 +16,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    prefer-ip-address: true
-    # FIX: Explicitly forces localhost to bypass the Windows mshome.net network bug
-    hostname: localhost
+      defaultZone: http://eureka:8761/eureka/
 
 server:
   port: 8083

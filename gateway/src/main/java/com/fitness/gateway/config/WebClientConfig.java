@@ -1,4 +1,4 @@
-package com.fitness.gateway.user;
+package com.fitness.gateway.config;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
@@ -8,15 +8,9 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Configuration
 public class WebClientConfig {
 
-
+    @Bean
     @LoadBalanced
-    @Bean
-    public WebClient.Builder webClientBuilder(){
+    public WebClient.Builder loadBalancedWebClientBuilder() {
         return WebClient.builder();
-    }
-
-    @Bean
-    public  WebClient userServiceWebClient(WebClient.Builder webClientBuilder){
-        return webClientBuilder.baseUrl("http://USER-SERVICE/").build();
     }
 }
